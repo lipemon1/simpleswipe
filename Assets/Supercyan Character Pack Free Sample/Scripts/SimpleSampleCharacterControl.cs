@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleSampleCharacterControl : MonoBehaviour
+public class SimpleSampleCharacterControl : MonoBehaviour, ICharacterController
 {
     private enum ControlMode
     {
@@ -108,7 +108,7 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     {
         if (!m_jumpInput && Input.GetKey(KeyCode.Space))
         {
-            m_jumpInput = true;
+            StartJump();
         }
     }
 
@@ -217,5 +217,9 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         {
             m_animator.SetTrigger("Jump");
         }
+    }
+    public void StartJump()
+    {
+        m_jumpInput = true;
     }
 }
