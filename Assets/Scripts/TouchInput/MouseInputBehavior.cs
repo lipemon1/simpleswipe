@@ -2,11 +2,8 @@ using UnityEngine;
 
 public class MouseInputBehavior : TouchInputBase
 {
-    [SerializeField]
     private float m_CurrentTouchPosition;
-    [SerializeField]
     private float m_LastTouchPosition;
-    [SerializeField]
     private float m_CurLastPositionDelta;
     
     private bool m_IsTouching;
@@ -30,13 +27,21 @@ public class MouseInputBehavior : TouchInputBase
             if (Input.GetMouseButtonUp(0))
             {
                 m_IsTouching = false;
+                m_CurrentTouchPosition = 0f;
+                m_LastTouchPosition = 0f;
+                m_CurLastPositionDelta = 0f;
             }   
         }
 
         if (m_IsTouching)
         {
+            if (m_LastTouchPosition == 0f)
+            {
+                return 0f;
+            }
+            
             m_CurLastPositionDelta = m_CurrentTouchPosition - m_LastTouchPosition;
-            m_IsSwiping = m_CurLastPositionDelta > m_DeltaTreshold;
+            m_IsSwiping = Mathf.Abs(m_CurLastPositionDelta) > m_DeltaTreshold;
 
             if (m_IsSwiping)
             {

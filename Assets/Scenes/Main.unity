@@ -742,9 +742,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DeltaTreshold: 0.75
-  m_CurrentTouchPosition: 0
-  m_LastTouchPosition: 0
-  m_CurLastPositionDelta: 0
 --- !u!1 &721119269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1802,6 +1799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 339cddc8a6b3c954eb4ccad708f0bc60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_RotationSpeed: 100
 --- !u!1 &1571368606
 GameObject:
   m_ObjectHideFlags: 0
